@@ -22,7 +22,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1 className={styles.title}>Todoist</h1>
+          <h1 className={styles.title}>Fokus</h1>
           <p className={styles.subtitle}>Manage your tasks with clarity</p>
         </header>
 

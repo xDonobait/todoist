@@ -1,20 +1,23 @@
 .taskList {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background-color: var(--color-black);
-  border: 1px solid var(--color-black);
-  margin-bottom: 32px;
+  gap: 2px;
+  background-color: var(--color-gray-900);
+  margin-bottom: 48px;
+  border: 1px solid var(--color-gray-800);
 }
 
 .empty {
-  padding: 60px 20px;
+  padding: 80px 24px;
   text-align: center;
-  border: 1px solid var(--color-gray-medium);
-  margin-bottom: 32px;
+  border: 1px solid var(--color-gray-800);
+  margin-bottom: 48px;
+  background-color: var(--color-gray-900);
 
   p {
-    color: var(--color-gray-dark);
-    font-size: 16px;
+    color: var(--color-gray-500);
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
   }
 }

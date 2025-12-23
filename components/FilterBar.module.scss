@@ -2,27 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  border-top: 1px solid var(--color-black);
-  gap: 20px;
+  padding: 32px 0 0;
+  border-top: 1px solid var(--color-gray-800);
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .filters {
   display: flex;
-  gap: 2px;
-  border: 1px solid var(--color-black);
+  gap: 0;
+  border: 1px solid var(--color-gray-700);
 }
 
 .filterButton {
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-black);
-  background-color: var(--color-white);
-  border-right: 1px solid var(--color-black);
+  letter-spacing: 1.2px;
+  color: var(--color-gray-400);
+  background-color: var(--color-black);
+  border-right: 1px solid var(--color-gray-700);
   transition: var(--transition);
 
   &:last-child {
@@ -30,12 +30,13 @@
   }
 
   &:hover {
-    background-color: var(--color-gray-light);
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
   }
 
   &.active {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
   &:active {
@@ -46,22 +47,27 @@
 .stats {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 14px;
+  gap: 20px;
+  font-size: 15px;
 }
 
 .statItem {
-  color: var(--color-gray-dark);
+  color: var(--color-gray-500);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .clearButton {
-  color: var(--color-black);
+  color: var(--color-white);
   font-size: 14px;
   text-decoration: underline;
+  text-underline-offset: 4px;
   transition: var(--transition);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 
   &:hover {
-    color: var(--color-gray-dark);
+    color: var(--color-gray-400);
   }
 
   &:active {
@@ -73,6 +79,7 @@
   .filterBar {
     flex-direction: column;
     align-items: stretch;
+    padding: 24px 0 0;
   }
 
   .filters {
@@ -81,10 +88,12 @@
 
   .filterButton {
     flex: 1;
+    padding: 12px 20px;
   }
 
   .stats {
     justify-content: space-between;
     width: 100%;
+    font-size: 14px;
   }
 }

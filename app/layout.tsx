@@ -1,9 +1,17 @@
 import type { Metadata } from 'next';
+import { Space_Grotesk } from 'next/font/google';
+import { DynamicFavicon } from '@/components/DynamicFavicon';
 import './globals.scss';
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-grotesk',
+});
+
 export const metadata: Metadata = {
-  title: 'Todoist — Minimalist Task Manager',
-  description: 'A clean and professional task management application',
+  title: 'Fokus',
+  description: 'A minimalist task management application',
 };
 
 export default function RootLayout({
@@ -12,8 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={spaceGrotesk.variable}>
+      <body>
+        <DynamicFavicon />
+        {children}
+      </body>
     </html>
   );
 }

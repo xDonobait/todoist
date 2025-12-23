@@ -1,52 +1,53 @@
 .inputContainer {
   display: flex;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 16px;
+  margin-bottom: 40px;
 }
 
 .input {
   flex: 1;
-  padding: 16px 20px;
-  border: 1px solid var(--color-black);
-  font-size: 16px;
-  background-color: var(--color-white);
-  color: var(--color-black);
+  padding: 20px 24px;
+  border: 1px solid var(--color-gray-700);
+  font-size: 17px;
+  background-color: var(--color-gray-900);
+  color: var(--color-white);
   transition: var(--transition);
+  font-weight: 400;
+  letter-spacing: 0.2px;
 
   &:focus {
-    border-width: 2px;
-    padding: 15px 19px;
+    border-color: var(--color-white);
+    background-color: var(--color-gray-800);
   }
 
   &::placeholder {
-    color: var(--color-gray-dark);
+    color: var(--color-gray-500);
+    font-weight: 300;
   }
 }
 
 .addButton {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  border: 1px solid var(--color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
   transition: var(--transition);
 
   &:hover:not(:disabled) {
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--color-gray-200);
+    transform: scale(1.05);
   }
 
   &:active:not(:disabled) {
-    transform: scale(0.96);
+    transform: scale(0.95);
   }
 
   &:disabled {
-    background-color: var(--color-gray-light);
-    border-color: var(--color-gray-medium);
-    color: var(--color-gray-dark);
+    background-color: var(--color-gray-800);
+    color: var(--color-gray-600);
     cursor: not-allowed;
   }
 
