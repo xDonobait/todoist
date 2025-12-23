@@ -10,8 +10,17 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Fokus',
-  description: 'A minimalist task management application',
+  title: 'Fokus — Minimalist Task Manager',
+  description: 'A clean, distraction-free task management app. Create, organize, and complete your tasks with clarity. Built with Next.js for a fast, minimalist productivity experience.',
+  keywords: ['task manager', 'todo list', 'productivity', 'minimalist', 'organizer', 'tasks'],
+  authors: [{ name: 'Donoban Peralta' }],
+  viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#000000',
+  openGraph: {
+    title: 'Fokus — Minimalist Task Manager',
+    description: 'A clean, distraction-free task management app for focused productivity',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
