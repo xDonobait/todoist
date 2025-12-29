@@ -1,14 +1,21 @@
 .taskItem {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
-  background-color: var(--color-black);
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-obsidian);
   transition: var(--transition);
-  border-bottom: 1px solid var(--color-gray-900);
+  border-bottom: 1px solid var(--color-charcoal);
+  position: relative;
+  animation: slideIn 0.3s ease-out both;
 
   &:hover {
-    background-color: var(--color-gray-900);
+    background-color: var(--color-charcoal);
+    
+    .gripHandle,
+    .actions {
+      opacity: 1;
+    }
   }
 
   &:last-child {
@@ -18,13 +25,56 @@
   &.completed {
     .taskText {
       text-decoration: line-through;
-      color: var(--color-gray-600);
+      color: var(--color-ash);
     }
     
     .checkbox {
-      background-color: var(--color-white);
-      border-color: var(--color-white);
+      .checkboxInner {
+        background-color: var(--color-crimson);
+        border-color: var(--color-crimson);
+      }
     }
+    
+    .meta {
+      opacity: 0.5;
+    }
+  }
+  
+  &.overdue {
+    background-color: rgba(139, 0, 0, 0.1);
+    
+    &:hover {
+      background-color: rgba(139, 0, 0, 0.15);
+    }
+  }
+}
+
+.priorityBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+
+.gripHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-ash);
+  opacity: 0;
+  transition: var(--transition);
+  cursor: grab;
+  flex-shrink: 0;
+  
+  &:hover {
+    color: var(--color-smoke);
+  }
+  
+  &:active {
+    cursor: grabbing;
   }
 }
 
@@ -32,55 +82,134 @@
   width: 28px;
   height: 28px;
   flex-shrink: 0;
-  border: 2px solid var(--color-gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+
+  &:hover {
+    .checkboxInner {
+      border-color: var(--color-crimson);
+      background-color: rgba(220, 20, 60, 0.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.checkboxInner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-ash);
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-
-  &:hover {
-    border-color: var(--color-white);
-    background-color: var(--color-gray-900);
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-
+  
   svg {
     display: block;
-    color: var(--color-black);
+    color: var(--color-white);
+    width: 14px;
+    height: 14px;
   }
 }
 
-.taskText {
+.content {
   flex: 1;
-  font-size: 17px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.taskText {
+  font-size: 15px;
   color: var(--color-white);
   word-break: break-word;
   font-weight: 400;
   letter-spacing: 0.2px;
+  line-height: 1.4;
 }
 
+.editInput {
+  width: 100%;
+  padding: var(--space-sm);
+  background: var(--color-charcoal);
+  border: 1px solid var(--color-crimson);
+  color: var(--color-white);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 2px var(--space-sm);
+  border: 1px solid;
+  font-size: 11px;
+  color: var(--color-silver);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dueDate {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 12px;
+  color: var(--color-smoke);
+  
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  &.overdue {
+    color: var(--color-crimson);
+  }
+  
+  &.today {
+    color: var(--color-gold);
+  }
+}
+
+.priority {
+  font-size: 12px;
+  color: var(--color-smoke);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-xs);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.actionButton,
 .deleteButton {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-gray-600);
+  color: var(--color-smoke);
   transition: var(--transition);
-  opacity: 0;
-
-  .taskItem:hover & {
-    opacity: 1;
-  }
 
   &:hover {
     color: var(--color-white);
-    background-color: var(--color-gray-800);
+    background-color: var(--color-slate);
   }
 
   &:active {
@@ -89,5 +218,32 @@
 
   svg {
     display: block;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.deleteButton {
+  &:hover {
+    color: var(--color-crimson);
+    background-color: rgba(220, 20, 60, 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .taskItem {
+    padding: var(--space-md);
+  }
+  
+  .gripHandle {
+    display: none;
+  }
+  
+  .actions {
+    opacity: 1;
+  }
+  
+  .meta {
+    gap: var(--space-sm);
   }
 }

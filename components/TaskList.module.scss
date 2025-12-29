@@ -1,23 +1,94 @@
 .taskList {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  background-color: var(--color-gray-900);
-  margin-bottom: 48px;
-  border: 1px solid var(--color-gray-800);
+  background-color: var(--color-obsidian);
+  margin-bottom: var(--space-2xl);
+  border: 2px solid var(--color-slate);
+  overflow: hidden;
+}
+
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-charcoal);
+  border-bottom: 1px solid var(--color-slate);
+}
+
+.taskCount {
+  font-size: 11px;
+  color: var(--color-smoke);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.listContent {
+  display: flex;
+  flex-direction: column;
 }
 
 .empty {
-  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-lg);
   text-align: center;
-  border: 1px solid var(--color-gray-800);
-  margin-bottom: 48px;
-  background-color: var(--color-gray-900);
-
-  p {
-    color: var(--color-gray-500);
-    font-size: 17px;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+  border: 2px solid var(--color-slate);
+  margin-bottom: var(--space-2xl);
+  background: var(--color-obsidian);
+  position: relative;
+  overflow: hidden;
+  
+  // Subtle gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  color: var(--color-ash);
+  animation: float 3s ease-in-out infinite;
+  
+  svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.emptyTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-silver);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 1px;
+}
+
+.emptyText {
+  color: var(--color-smoke);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.emptyOrnament {
+  margin-top: var(--space-lg);
+  color: var(--color-slate);
+  font-size: 10px;
+  letter-spacing: 8px;
 }
