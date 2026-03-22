@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk } from 'next/font/google';
 import { DynamicFavicon } from '@/components/DynamicFavicon';
 import './globals.scss';
@@ -9,16 +9,18 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-grotesk',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#09090b',
+};
+
 export const metadata: Metadata = {
-  title: 'Fokus — Minimalist Task Manager',
-  description: 'A clean, distraction-free task management app. Create, organize, and complete your tasks with clarity. Built with Next.js for a fast, minimalist productivity experience.',
-  keywords: ['task manager', 'todo list', 'productivity', 'minimalist', 'organizer', 'tasks'],
+  title: 'Fokus — Task Board',
+  description: 'A modern Kanban-style task board for organizing and tracking your projects. Built with Next.js.',
+  keywords: ['task manager', 'kanban board', 'productivity', 'project management', 'tasks'],
   authors: [{ name: 'Donoban Peralta' }],
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#000000',
   openGraph: {
-    title: 'Fokus — Minimalist Task Manager',
-    description: 'A clean, distraction-free task management app for focused productivity',
+    title: 'Fokus — Task Board',
+    description: 'A modern Kanban-style task board for organizing and tracking your projects',
     type: 'website',
   },
 };

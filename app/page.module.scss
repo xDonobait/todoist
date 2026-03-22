@@ -2,200 +2,90 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: var(--space-2xl) var(--space-lg);
-  background-color: var(--color-black);
-  overflow-y: auto;
-  
-  // Subtle gothic gradient overlay
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(139, 0, 0, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(74, 0, 128, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-}
+  background-color: var(--bg-primary);
+  padding: 32px 40px;
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+  }
 }
 
 .header {
-  margin-bottom: var(--space-3xl);
-  text-align: center;
-  padding-bottom: var(--space-xl);
-  position: relative;
-  
-  &::after {
-    display: block;
-    margin-top: var(--space-xl);
-    color: var(--color-slate);
-    font-size: 10px;
-    letter-spacing: 12px;
-    text-align: center;
-  }
+  margin-bottom: 28px;
 }
 
-.titleWrapper {
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.headerLeft {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-md);
+  gap: 16px;
 }
 
-.ornament {
-  color: var(--color-slate);
-  opacity: 0.6;
-  transition: var(--transition);
-  
-  &:hover {
-    opacity: 1;
-    color: var(--color-crimson);
-  }
+.logo {
+  color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 .title {
-  font-size: 72px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: -3px;
-  color: var(--color-white);
-  line-height: 1;
-  text-transform: uppercase;
-  position: relative;
-  
-  // Gothic text shadow effect
-  text-shadow: 
-    0 0 40px rgba(255, 255, 255, 0.1),
-    0 2px 0 var(--color-obsidian);
-  
-  // Animated underline
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-crimson), transparent);
-  }
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .subtitle {
   font-size: 14px;
-  color: var(--color-smoke);
-  font-weight: 400;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-top: var(--space-lg);
+  color: var(--text-muted);
+  margin-top: 4px;
 }
 
-.content {
-  width: 100%;
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-  margin-bottom: var(--space-2xl);
-}
-
-.statCard {
-  background: var(--color-obsidian);
-  border: 1px solid var(--color-slate);
-  padding: var(--space-lg);
-  text-align: center;
-  transition: var(--transition);
-  
-  &:hover {
-    border-color: var(--color-ash);
-    background: var(--color-charcoal);
-  }
-}
-
-.statValue {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-white);
-  line-height: 1;
-  margin-bottom: var(--space-xs);
-}
-
-.statLabel {
-  font-size: 11px;
-  color: var(--color-smoke);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.progressSection {
-  margin-bottom: var(--space-2xl);
-}
-
-.progressBar {
-  height: 4px;
-  background: var(--color-charcoal);
-  border: 1px solid var(--color-slate);
-  overflow: hidden;
-  margin-bottom: var(--space-sm);
-}
-
-.progressFill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--color-blood), var(--color-crimson));
-  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
-    animation: shimmer 2s infinite;
-  }
-}
-
-.progressText {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--color-smoke);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sectionTitle {
+.tabs {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-  color: var(--color-silver);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-slate), transparent);
+  gap: 4px;
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 0;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-secondary);
+  }
+}
+
+.tabActive {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+.viewSection {
+  flex: 1;
+  min-height: 0;
 }
 
 .footer {

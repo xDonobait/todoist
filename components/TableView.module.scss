@@ -1,0 +1,211 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addButton {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: transparent;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--border-secondary);
+    background: var(--bg-secondary);
+  }
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-primary);
+    border-radius: 3px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th,
+  td {
+    padding: 10px 14px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-card);
+    position: sticky;
+    top: 0;
+  }
+
+  td {
+    border-bottom: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+  }
+}
+
+.thCheck {
+  width: 44px;
+}
+
+.thTitle {
+  min-width: 200px;
+}
+
+.thActions {
+  width: 44px;
+}
+
+.row {
+  transition: background 0.1s ease;
+
+  &:hover {
+    background: var(--bg-card);
+  }
+
+  &:hover .deleteButton {
+    opacity: 1;
+  }
+
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid var(--border-secondary);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--bg-primary);
+
+  &:hover {
+    border-color: var(--text-muted);
+  }
+}
+
+.checked {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.titleCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titleText {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.descText {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.chip {
+  display: inline-flex;
+  padding: 3px 10px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.dateCell {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+  }
+}
+
+.empty {
+  text-align: center;
+  padding: 40px 14px !important;
+  color: var(--text-muted);
+  font-size: 14px;
+}
