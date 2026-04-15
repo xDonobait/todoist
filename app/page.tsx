@@ -57,9 +57,6 @@ export default function Home() {
             </svg>
             <div>
               <h1 className={styles.title}>Tasks</h1>
-              <p className={styles.subtitle}>
-                Organize and track your projects effortlessly
-              </p>
             </div>
           </div>
         </div>
